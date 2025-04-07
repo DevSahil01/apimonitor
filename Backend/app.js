@@ -3,8 +3,11 @@ import express, { application }  from 'express'
 import getInfo from './insertlogs.js';
 import clickhouse  from "./connection.js"
 import fetchlogs from './fetchlogs.js';
+import monitor from '@devsahil01/apimonitoring'
 
 const app = express();
+
+app.use(monitor())
 
 
 const PORT = 4000;
@@ -14,13 +17,10 @@ app.get('/login',getInfo ,(req, res) => {
   res.send('Hello, World! This is your Express server.');
 });
 
-app.post('/getdata',getInfo,(req,res)=>{
+app.post('/getdata',   getInfo    ,(req,res)=>{
      console.log(req.body)
      res.send("data received")
 })
-
-
-
 
 
 

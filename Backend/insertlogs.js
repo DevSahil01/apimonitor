@@ -33,6 +33,8 @@ async function   getInfo(req,res,next){
     console.log(req.method)
     console.log(res.statusCode)
     console.log(req.url)
+
+
    
      res.on('finish', () => {
         const duration = Date.now() - start;
